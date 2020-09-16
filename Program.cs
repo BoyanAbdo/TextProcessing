@@ -1,40 +1,48 @@
 ﻿using System;
 using System.Linq;
 
-namespace _01.ValidUsernames
+namespace _02.CharacterMultiplier
 {
     class Program
     {
         static void Main()
         {
-            string[] names = Console.ReadLine().Split(", ", StringSplitOptions.RemoveEmptyEntries);
-            foreach (var name in names)
+            string[] words = Console.ReadLine().Split();
+            char[] word1 = words[0].ToCharArray();
+            char[] word2 = words[1].ToCharArray();
+            int result = 0;
+
+            if (word1.Length == word2.Length)
             {
-                bool isValid = false;
-                if (name.Length >= 3 && name.Length <= 16)
+                for (int i = 0; i < word1.Length; i++)
                 {
-                    isValid = CheckName(name);
+                    result += (word1[i] * word2[i]);
                 }
-                if (isValid)
+            }
+            else if (word1.Length < word2.Length) // abc abcde
+            {
+                for (int i = 0; i < word1.Length; i++)
                 {
-                    Console.WriteLine(name);
+                    result += (word1[i] * word2[i]);
+                }
+                for (int i = word1.Length; i < word2.Length; i++)
+                {
+                    result += word2[i];
+                }
+            }
+            else if (word1.Length > word2.Length) // abcde abc
+            {
+                for (int i = 0; i < word2.Length; i++)
+                {
+                    result += (word1[i] * word2[i]);
+                }
+                for (int i = word2.Length; i < word1.Length; i++)
+                {
+                    result += word1[i];
                 }
             }
 
-        }
-
-        private static bool CheckName(string name)
-        {
-            char[] toChars = name.ToCharArray();
-            foreach (var ch in toChars)
-            {
-                if (!((ch >= 48 && ch <= 57) || (ch >= 65 && ch <= 90)
-                    || (ch >= 97 && ch <= 122) || ch=='-'||ch=='_'))
-                {
-                    return false;
-                }
-            }
-            return true;
+            Console.WriteLine(result);
         }
     }
 }
