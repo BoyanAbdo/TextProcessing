@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace _03.ExtractFile
 {
+
+//Write a program that reads the path to a file and subtracts the file name and its extension.
+//C:\Internal\training-internal\Template.pptx ->    File name: Template
+                                                //  File extension: pptx
     class Program
     {
         static void Main()
