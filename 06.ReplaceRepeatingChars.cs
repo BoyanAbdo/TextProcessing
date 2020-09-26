@@ -3,6 +3,8 @@ using System.Text;
 
 namespace _06.ReplaceRepeatingChars
 {
+// Write a program that reads a string from the console and replaces any sequence of the same letters with a single corresponding letter.
+
     class Program
     {
         static void Main()
