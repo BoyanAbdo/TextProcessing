@@ -5,6 +5,12 @@ using System.Text;
 
 namespace _05.MultiplyBigNumber
 {
+
+// You are given two lines – the first one can be a really big number (0 to 1050). 
+// The second one will be a single digit number (0 to 9). You must display the product of these numbers.
+// Note: do not use the BigInteger class.
+
+
     class Program
     {
         static void Main(string[] args)
@@ -55,9 +61,6 @@ namespace _05.MultiplyBigNumber
                 string result = String.Join("", resultDigits);
                 Console.WriteLine(result);
             }
-            //  String.Join("", new List<int>(array).ConvertAll(i => i.ToString()).ToArray());
-
-            //Console.WriteLine(Reverse(result));
 
         }
 
